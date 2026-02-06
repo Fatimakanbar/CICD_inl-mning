@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CICD_kryptering")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d4dff760787bcecab4da5c132bd5f3748f22d29")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fb7627fe7a38487479ae45c413db587ed10b9cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("CICD_kryptering")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CICD_kryptering")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
