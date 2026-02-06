@@ -8,7 +8,7 @@ namespace CICD_kryptering.Controllers
     {
         private const int Shift = 3; 
 
-        // POST: /encryption/encrypt.
+        // POST: /encryption/encrypt
         [HttpPost("encrypt")]
         public IActionResult Encrypt([FromBody] string text)
         {
