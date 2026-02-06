@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore
 
       - name: Publish
-        run: dotnet publish CICD_kryptering.cspproj -c Release -o out
+        run: dotnet publish CICD_kryptering.csproj -c Release -o out
 
       - name: Zip artifact
         run: |
