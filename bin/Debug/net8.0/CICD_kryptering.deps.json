@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CICD_kryptering/1.0.0": {
+        "runtime": {
+          "CICD_kryptering.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CICD_kryptering/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
