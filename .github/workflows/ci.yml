@@ -38,5 +38,5 @@ jobs:
           application_name: CICD_uppgiften
           environment_name: CICDuppgiften-env
           version_label: ${{ github.run_id }}
-          region: eu-north-1
+          region: us-east-1
           deployment_package: app.zip
