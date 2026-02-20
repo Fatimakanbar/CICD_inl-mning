@@ -1,4 +1,4 @@
-name: Deploy to AWS Elastic Beanstalk
+name: Deploy .NET app to Elastic Beanstalk
 
 on:
   push:
@@ -13,19 +13,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          node-version: 18
+          dotnet-version: '8.0.x'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Restore dependencies
+        run: dotnet restore
 
       - name: Build project
-        run: npm run build
+        run: dotnet build --configuration Release
 
-      - name: Zip build folder
-        run: zip -r build.zip .
+      - name: Publish project
+        run: dotnet publish -c Release -o publish
+
+      - name: Zip publish folder
+        run: zip -r deploy.zip publish/
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v21
@@ -36,4 +39,4 @@ jobs:
           environment_name: CICDuppgiften-env
           region: us-east-1
           version_label: ${{ github.sha }}
-          deployment_package: build.zip
+          deployment_package: deploy.zip
