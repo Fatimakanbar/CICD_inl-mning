@@ -3,4 +3,4 @@ för att det ska fungera starta API:T "med dotnet run på VS code och skriv curl
 
 curl -X POST http://localhost:5198/Encryption/encrypt -H "Content-Type: application/json" -d '"hello"'
  
-deploy.
+deploy
