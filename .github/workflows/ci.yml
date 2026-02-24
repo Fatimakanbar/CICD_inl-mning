@@ -18,16 +18,15 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore projekt
-        run: dotnet restore; dotnet publish -o site;
+      - name: Build project
+        run: dotnet build --configuration Release
 
-      - name: Publish
-        run: dotnet publish CICD_kryptering.csproj -c Release -o out
+      - name: Publish project
+        run: dotnet publish -c Release -o publish
 
-      - name: create zip package
-        run: cd site; zip ../site.zip*;
-        
-
+      - name: Zip publish folder
+        run: cd publish && zip -r ../deploy.zip .
+      
       - name: Deploy to aws EB
         uses: einaregilsson/beanstalk-deploy@v22
         with:
