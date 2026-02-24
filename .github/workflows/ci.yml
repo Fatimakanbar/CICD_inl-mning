@@ -18,22 +18,21 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - name: Build project
-        run: dotnet build --configuration Release
+      - name: Publish project (correct project file)
+        run: dotnet publish ./CICD_kryptering.csproj -c Release -o publish
 
-      - name: Publish project
-        run: dotnet publish -c Release -o publish
+      - name: Create deployment package
+        run: |
+          cd publish
+          zip -r ../deploy.zip .
 
-      - name: Zip publish folder
-        run: cd publish && zip -r ../deploy.zip .
-      
-      - name: Deploy to aws EB
-        uses: einaregilsson/beanstalk-deploy@v22
+      - name: Deploy to AWS Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v21
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: Uppgiften
-          environment_name: Uppgiften-env 
-          version_label: ${{ github.run_id }}
+          application_name: CICD_kryptering
+          environment_name: CICDkryptering-env
+          version_label: github-${{ github.run_number }}
           region: us-east-1
           deployment_package: deploy.zip
