@@ -30,7 +30,7 @@ jobs:
       - name: Zip publish folder
         run: cd publish && zip -r ../deploy.zip .
 
-      - name: Deploy to Elastic Beanstalk
+      - name: Deploy to aws EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
