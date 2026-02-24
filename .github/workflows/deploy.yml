@@ -35,8 +35,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: CICD_uppgiften
-          environment_name: CICDuppgiften-env
+          application_name: Uppgiften
+          environment_name: Uppgiften-env
           region: us-east-1
           version_label: ${{ github.sha }}
           deployment_package: deploy.zip
